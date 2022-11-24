@@ -60,6 +60,10 @@ export const routes = createBrowserRouter([
                 element: <div className="flex justify-center items-center text-4xl text-center mx-5"><p>Please Choose an option from Side Bar</p></div>
             },
             {
+                path: '/dashboard/default',
+                element: <div className="flex justify-center items-center text-4xl text-center mx-5"><p>Please Choose an option from Side Bar</p></div>
+            },
+            {
                 path: '/dashboard/all-sellers',
                 element: <Auth><Private><AllSellers/></Private></Auth>
             },
