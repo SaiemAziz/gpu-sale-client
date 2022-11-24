@@ -78,7 +78,7 @@ const AddAProduct = () => {
 
   return (
     <div className="">
-      <h1 className="text-4xl text-center">Please Add A Product</h1>
+      <h1 className="text-4xl text-center my-10">Please Add A Product</h1>
       <form onSubmit={addForm} className="grid sm:grid-cols-2 grid-cols-1 gap-2 p-5">
         <h1 className="my-auto text-xl">Product Name</h1>
         <input

@@ -57,7 +57,7 @@ const AllBuyers = () => {
 
     return (
         <div className="px-5">
-        <p className="text-4xl text-center my-10">All Buyers List: {buyers.lenght || 0}</p>
+        <p className="text-4xl text-center my-10">All Buyers List: {buyers.length || 0}</p>
       <div className="overflow-x-scroll w-[400px] sm:w-[500px] md:w-[750px]">
         <table className="table table-compact w-full ">
           <thead>

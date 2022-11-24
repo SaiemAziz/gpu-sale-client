@@ -14,9 +14,6 @@ const Header = () => {
       <NavLink className="btn btn-ghost" to="/blogs">
         Blogs
       </NavLink>
-      <NavLink className="btn btn-ghost" to="/categories">
-        Category
-      </NavLink>
       <NavLink className="btn btn-ghost" to="/dashboard">
         Dashboard
       </NavLink>
