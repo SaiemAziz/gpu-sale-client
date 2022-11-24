@@ -12,46 +12,68 @@ import tokenSet from '../../hooks/tokenSet';
 const Login = () => {
     useTitle("Login")
     let [show, setShow] = useState(false)
-    let [loading, setLoading] = useState(false)
+    let [logloading, setLogLoading] = useState(false)
     let navigate = useNavigate()
-    let {user, setUser, logIn, redirect, googleLogin, setRedirect} = useContext(AuthContext)
+    let {user, setUser, logIn, redirect, googleLogin, setRedirect, githubLogin, setLoading} = useContext(AuthContext)
     let form = redirect || '/'
 
     // log in form
     let formSubmit = e => {
         e.preventDefault()
-        setLoading(true)
+        setLogLoading(true)
         let email = e.target.email.value
         let password = e.target.password.value
         logIn(email, password)
             .then(res => {
                 setUser(res.user)
-                setLoading(false)
+                setLogLoading(false)
                 setRedirect(null)
                 navigate(form)
                 tokenSet(res.user.email)
             })
             .catch(err => {
                 toast.error(err.code.replace('auth/','').replaceAll('-',' ').toUpperCase())
+                setLogLoading(false)
                 setLoading(false)
             })
     }
 
     // google log in
     let googleClicked = () => {
-        setLoading(true)
+        setLogLoading(true)
         googleLogin()
             .then(res => {
                 setUser(res.user)
-                roleSet(res.user.email)
-                setLoading(false)
+                roleSet(res.user?.email)
+                setLogLoading(false)
                 setRedirect(null)
                 navigate(form)
-                tokenSet(res.user.email)
+                tokenSet(res.user?.email)
             })
             .catch(err => {
                 console.log(err)
                 toast.error(err.code.replace('auth/','').replaceAll('-',' ').toUpperCase())
+                setLogLoading(false)
+                setLoading(false)
+            })
+    }
+
+    // git hub log in
+    let githubClicked = () => {
+        setLogLoading(true)
+        githubLogin()
+            .then(res => {
+                setUser(res.user)
+                roleSet(res.user?.email)
+                setLogLoading(false)
+                setRedirect(null)
+                navigate(form)
+                tokenSet(res.user?.email)
+            })
+            .catch(err => {
+                console.log(err)
+                toast.error(err.code.replace('auth/','').replaceAll('-',' ').toUpperCase())
+                setLogLoading(false)
                 setLoading(false)
             })
     }
@@ -70,18 +92,19 @@ const Login = () => {
                 </div>
 
                 {
-                    loading ? 
+                    logloading ? 
                     <div className='sm:col-span-2 flex justify-center'>
                         <Loading size={50}></Loading>
                     </div> :
                     <>
                         <input className='btn btn-success w-40 mx-auto' type="submit" value={'Login'}/>
                         <Link className='btn btn-info btn-outline w-64 mx-auto' to='/register'>No Account?</Link>
-                        <div className='sm:col-span-2 text-2xl flex justify-center gap-5'>
+                        <div className='sm:col-span-2 text-2xl flex justify-center gap-5 p-5 bg-base-100 w-fit mx-auto mt-5 rounded-3xl'>
                             <FcGoogle
                             onClick={googleClicked}
                             />
                             <FiGithub
+                            onClick={githubClicked}
                             />
                         </div>
                     </>

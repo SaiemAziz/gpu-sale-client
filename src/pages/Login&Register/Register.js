@@ -12,8 +12,8 @@ import tokenSet from '../../hooks/tokenSet';
 const Register = () => {
     useTitle("Register")
     let [show, setShow] = useState(false)
-    let [loading, setLoading] = useState(false)
-    let {user, setUser, createUser, updateUser, googleLogin, redirect, setRedirect} = useContext(AuthContext)
+    let [regloading, setRegLoading] = useState(false)
+    let {user, setUser, createUser, updateUser, googleLogin, redirect, setRedirect, githubLogin, setLoading} = useContext(AuthContext)
     let url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMGBB}`
     let navigate = useNavigate()
     let form = redirect || '/'
@@ -21,7 +21,7 @@ const Register = () => {
     // registration data
     let formSubmit = async e => {
         e.preventDefault()
-        setLoading(true)
+        setRegLoading(true)
         let image = e.target.image.files[0]
         let formData = new FormData()
         formData.append("image", image)
@@ -42,7 +42,7 @@ const Register = () => {
         {
             toast.error("Password & Confirm did not match")
             e.target.reset()
-            setLoading(false)
+            setRegLoading(false)
             return;
         }
         createUser(newUser.email, newUser.password)
@@ -55,13 +55,14 @@ const Register = () => {
                 })
                     .then().catch()
                 toast.success('Successfully Registered')
-                setLoading(false)
+                setRegLoading(false)
                 e.target.reset()
                 navigate(form)
                 tokenSet(newUser.email)
             })
             .catch(err => {
                 toast.error(err.code.replace('auth/','').replaceAll('-',' ').toUpperCase())
+                setRegLoading(false)
                 setLoading(false)
             })
     }
@@ -69,21 +70,41 @@ const Register = () => {
 
     // google login
     let googleClicked = () => {
-        setLoading(true)
+        setRegLoading(true)
         googleLogin()
             .then(res => {
                 setUser(res.user)
                 roleSet(res.user.email)
-                setLoading(false)
+                setRegLoading(false)
                 navigate(form)
                 tokenSet(res.user.email)
             })
             .catch(err => {
                 toast.error(err.code.replace('auth/','').replaceAll('-',' ').toUpperCase())
+                setRegLoading(false)
                 setLoading(false)
             })
     }
 
+    // git hub log in
+    let githubClicked = () => {
+        setRegLoading(true)
+        githubLogin()
+            .then(res => {
+                setUser(res.user)
+                roleSet(res.user?.email)
+                setRegLoading(false)
+                setRedirect(null)
+                navigate(form)
+                tokenSet(res.user?.email)
+            })
+            .catch(err => {
+                console.log(err)
+                toast.error(err.code.replace('auth/','').replaceAll('-',' ').toUpperCase())
+                setRegLoading(false)
+                setLoading(false)
+            })
+    }
 
     return (
         <div className='my-10 mx-5 text-left'>
@@ -109,18 +130,19 @@ const Register = () => {
                     /></p>
                 </div>
                 {
-                    loading ? 
+                    regloading ? 
                     <div className='sm:col-span-2 flex justify-center'>
                         <Loading size={50}></Loading>
                     </div> :
                     <>
                         <input className='btn btn-success w-40 mx-auto' type="submit" value={'Register'}/>
                         <Link className='btn btn-info btn-outline w-64 mx-auto' to='/login'>Already Have Account?</Link>
-                        <div className='sm:col-span-2 text-2xl flex justify-center gap-5'>
+                        <div className='sm:col-span-2 text-2xl flex justify-center gap-5 p-5 bg-base-100 w-fit mx-auto mt-5 rounded-3xl'>
                             <FcGoogle
                             onClick={googleClicked}
                             />
                             <FiGithub
+                            onClick={githubClicked}
                             />
                         </div>
                     </>

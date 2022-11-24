@@ -3,15 +3,15 @@ import { useState } from "react"
 
 const useRoleCheck = (email) => {
     let [role, setRole] = useState('')
-    let [loading, setLoading] = useState(true)
+    let [roleloading, setRoleLoading] = useState(true)
 
     axios.get(`${process.env.REACT_APP_URL}/role-check/${email}`)
         .then(res => {
             setRole(res.data.role)
-            setLoading(false)
+            setRoleLoading(false)
         })
 
-    return {role, loading}
+    return {role, loading: roleloading}
 }
 
 export default useRoleCheck
