@@ -7,22 +7,7 @@ const DashHeader = ({role}) => {
   let { logOut, user, setUser, setRedirect } = useContext(AuthContext);
   let location = useLocation();
   let navigate = useNavigate();
-  let menu = (
-    <>
-      <NavLink className="btn btn-ghost" to="/home">
-        Home
-      </NavLink>
-      <NavLink className="btn btn-ghost" to="/blogs">
-        Blogs
-      </NavLink>
-      <NavLink className="btn btn-ghost" to="/categories">
-        Category
-      </NavLink>
-      <NavLink className="btn btn-ghost" to="/dashboard">
-        Dashboard
-      </NavLink>
-    </>
-  );
+  
 
   let logoutClicked = () => {
     setRedirect(location.pathname === ('/login' || 'register') ? '/' : location.pathname );
@@ -36,7 +21,7 @@ const DashHeader = ({role}) => {
   return (
     <div className="navbar bg-base-300 sticky top-0 z-50">
       <div className="navbar-start">
-          <label htmlFor="sidebar" className="btn btn-ghost lg:hidden">
+          <label htmlFor="sidebar" className=" lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -53,23 +38,22 @@ const DashHeader = ({role}) => {
             </svg>
           </label>
         
-        <NavLink to="/" className="btn btn-ghost normal-case text-xl">
-          daisyUI
+        <NavLink to="/" className="btn btn-ghost normal-case text-xl font-extrabold hover:bg-base-300">
+          <p className="px-3 py-2 text-base-300 bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl">DP</p>
+          <p className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600 ml-1">SALE</p>
         </NavLink>
       </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal p-0">{menu}</ul>
-      </div>
+      
       <div className="navbar-end">
         {user ? (
           <div className="flex gap-3">
-            <p className="my-auto text-2xl italic font-bold text-amber-600">{role.toUpperCase()}</p>
+            <p className="my-auto italic font-bold text-amber-600">{role.toUpperCase()}</p>
             <div
-              className="h-[40px] my-auto tooltip tooltip-bottom tooltip-info"
+              className="h-[30px] w-[30px] my-auto tooltip tooltip-bottom tooltip-info"
               data-tip={user?.displayName || "No Name"}
             >
               <img
-                className="h-full rounded-full"
+                className="h-full w-full rounded-full"
                 src={user?.photoURL || process.env.REACT_APP_BLANK}
                 alt=""
               />

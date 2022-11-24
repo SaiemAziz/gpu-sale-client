@@ -49,13 +49,16 @@ const Dashboard = () => {
       <div class="h-screen drawer drawer-mobile w-full">
       <input id="sidebar" type="checkbox" class="drawer-toggle" />
       <div class="drawer-content flex flex-col items-center justify-center">
+        
         {/* <!-- Page content here --> */}
         <Outlet/>
       </div>
       <div class="drawer-side">
         <label for="sidebar" class="drawer-overlay"></label>
         <ul class="menu p-4 overflow-y-auto w-80 bg-base-300 text-xl text-base-content">
+          <p className="my-10 text-2xl italic font-semibold text-center">Dashboard</p>
           {/* <!-- Sidebar content here --> */}
+          
           {menu}
         </ul>
       </div>

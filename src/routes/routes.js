@@ -57,7 +57,7 @@ export const routes = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <div className="flex min-h-screen justify-center items-center text-4xl text-center mx-5"><p>Please Choose an option from Side Bar</p></div>
+                element: <div className="flex justify-center items-center text-4xl text-center mx-5"><p>Please Choose an option from Side Bar</p></div>
             },
             {
                 path: '/dashboard/all-sellers',

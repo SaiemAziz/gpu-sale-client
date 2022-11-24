@@ -59,8 +59,9 @@ const Header = () => {
             {menu}
           </ul>
         </div>
-        <NavLink to="" className="btn btn-ghost normal-case text-xl">
-          daisyUI
+        <NavLink to="/" className="btn btn-ghost normal-case text-xl font-extrabold hover:bg-base-300">
+          <p className="px-3 py-2 text-base-300 bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl">DP</p>
+          <p className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600 ml-1">SALE</p>
         </NavLink>
       </div>
       <div className="navbar-center hidden lg:flex">
