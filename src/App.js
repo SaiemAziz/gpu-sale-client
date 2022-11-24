@@ -1,14 +1,23 @@
+import { Outlet } from 'react-router-dom';
 import './App.css';
 import useRoleCheck from './hooks/useRoleCheck';
+import { useTitle } from './hooks/useTitle';
 import { Loading } from './shared/components/Loading';
+import Footer from './shared/Footer';
+import Header from './shared/Header';
 
 function App() {
 
-  const role = useRoleCheck("sayemazizchy@gmail.com")
-
   return (
-    <div className="App">
-      
+    <div className="App max-w-7xl mx-auto">
+
+      {/* main page */}
+      <div className='min-h-screen flex flex-col justify-between'>
+        <Header/>
+        <Outlet/>
+        <Footer/>
+      </div>
+    
     </div>
   );
 }

@@ -4,7 +4,7 @@ import React from 'react'
 export const Loading = ({size}) => {
 
 return (
-  <div className="w-[50%]  flex-center h-10">
+  <div className="flex-center h-10">
     <div
       style={{ width: `${size}px`, height: `${size}px` }}
       className="animate-spin">
