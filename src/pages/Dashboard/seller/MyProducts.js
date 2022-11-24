@@ -55,6 +55,7 @@ const MyProducts = () => {
 
   return (
     <div className="px-5">
+        <p className="text-4xl text-center my-10">My Products List</p>
       <div className="overflow-x-scroll w-[400px] sm:w-[500px] md:w-[750px]">
         <table className="table table-compact w-full ">
           <thead>
@@ -67,6 +68,7 @@ const MyProducts = () => {
               <th>Post Date</th>
               <th>Buying Date</th>
               <th>Years Used</th>
+              <th>Status</th>
               <th>Option</th>
             </tr>
           </thead>
@@ -74,17 +76,18 @@ const MyProducts = () => {
             {products.map((product, i) => (
               <tr key={i}>
                 <th className="">{i + 1}</th>
-                <td><img className="h-[50px] rounded-2xl" src={product.photoURL} alt="" /></td>
-                <td>{product.name}</td>
-                <td>{product.originalPrice}$</td>
-                <td>{product.resalePrice}$</td>
-                <td>{product.postDate}</td>
-                <td>{product.realDate}</td>
-                <td>{product.used} yrs</td>
+                <td><img className="h-[50px] rounded-2xl" src={product?.photoURL} alt="" /></td>
+                <td>{product?.name}</td>
+                <td>{product?.originalPrice}$</td>
+                <td>{product?.resalePrice}$</td>
+                <td>{product?.postDate}</td>
+                <td>{product?.realDate}</td>
+                <td>{product?.used} yrs</td>
+                <td>{product?.status}</td>
                 <td>
                     {
-                        !product.advertise ?
-                        <button className="btn btn-xs btn-info text-xs" onClick={()=>ad(product._id)}
+                        !product?.advertise ?
+                        <button className="btn btn-xs btn-info text-xs" onClick={()=>ad(product?._id)}
                             >Advertise
                         </button> :
                         <p className="text-success font-bold">Advertised</p>

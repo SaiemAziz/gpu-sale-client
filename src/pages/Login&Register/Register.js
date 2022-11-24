@@ -48,7 +48,7 @@ const Register = () => {
         createUser(newUser.email, newUser.password)
             .then(res => {
                 setUser(newUser)
-                roleSet(newUser.email, newUser.role)
+                roleSet(newUser.email, newUser.role, newUser.photoURL, newUser?.displayName)
                 updateUser({
                     displayName: newUser.displayName,
                     photoURL: newUser.photoURL

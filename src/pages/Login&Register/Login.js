@@ -44,7 +44,7 @@ const Login = () => {
         googleLogin()
             .then(res => {
                 setUser(res.user)
-                roleSet(res.user?.email)
+                roleSet(res.user?.email, 'buyer', res.user?.photoURL, res.user?.displayName)
                 setLogLoading(false)
                 setRedirect(null)
                 navigate(form)
@@ -64,7 +64,7 @@ const Login = () => {
         githubLogin()
             .then(res => {
                 setUser(res.user)
-                roleSet(res.user?.email)
+                roleSet(res.user?.email, 'buyer', res.user?.photoURL, res.user?.displayName)
                 setLogLoading(false)
                 setRedirect(null)
                 navigate(form)
