@@ -2,10 +2,12 @@ import React, { useContext, useEffect } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { AuthContext } from "../../context/Auth";
 import useRoleCheck from "../../hooks/useRoleCheck";
+import { useTitle } from "../../hooks/useTitle";
 import { Loading } from "../../shared/components/Loading";
 import Header from '../../shared/Header'
 import DashHeader from "./DashHeader";
 const Dashboard = () => {
+  useTitle('Dashboard')
   let { user } = useContext(AuthContext);
 
   let { role, loading } = useRoleCheck(user?.email);
@@ -44,18 +46,18 @@ const Dashboard = () => {
     );
 
   return (
-    <div>
+    <div className="max-w-7xl mx-auto">
       <DashHeader role={role}/>
-      <div class="h-screen drawer drawer-mobile w-full">
-      <input id="sidebar" type="checkbox" class="drawer-toggle" />
-      <div class="drawer-content flex flex-col items-center justify-center">
+      <div className="h-screen drawer drawer-mobile w-full">
+      <input id="sidebar" type="checkbox" className="drawer-toggle" />
+      <div className="drawer-content flex flex-col items-center justify-center">
         
         {/* <!-- Page content here --> */}
         <Outlet/>
       </div>
-      <div class="drawer-side">
-        <label for="sidebar" class="drawer-overlay"></label>
-        <ul class="menu p-4 overflow-y-auto w-80 bg-base-300 text-xl text-base-content">
+      <div className="drawer-side">
+        <label htmlFor="sidebar" className="drawer-overlay"></label>
+        <ul className="menu p-4 overflow-y-auto w-80 bg-base-300 text-xl text-base-content">
           <p className="my-10 text-2xl italic font-semibold text-center">Dashboard</p>
           {/* <!-- Sidebar content here --> */}
           
