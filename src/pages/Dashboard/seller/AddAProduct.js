@@ -1,5 +1,5 @@
 import { async } from "@firebase/util";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../../context/Auth";
@@ -8,6 +8,7 @@ import { Loading } from "../../../shared/components/Loading";
 
 const AddAProduct = () => {
   let { user } = useContext(AuthContext);
+  let [addloading, setAddLoading] = useState(false)
   let { role, loading } = useRoleCheck(user?.email);
   let url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMGBB}`
   if (loading) return <Loading size={80} />;
@@ -17,6 +18,7 @@ const AddAProduct = () => {
   // add a product form
   let addForm = async (e) => {
     e.preventDefault();
+    setAddLoading(true);
     let realDate = e.target.date.value;
     let past_date = new Date(realDate);
     realDate = (past_date.toLocaleDateString());
@@ -24,6 +26,7 @@ const AddAProduct = () => {
     let postDate = (current_date.toLocaleDateString());
     if(past_date>current_date) {
         toast.error('Please select the real buying date')
+        setAddLoading(false)
         return e.target.reset()
     }
     let difference_In_Time = current_date.getTime() - past_date.getTime();
@@ -55,11 +58,26 @@ const AddAProduct = () => {
         photoURL : data.data.url
     }
 
-    console.log(product)
+    fetch(`${process.env.REACT_APP_URL}/add-a-product`,{
+        method: 'POST',
+        headers: {
+            "content-type": "application/json",
+            authtoken : localStorage.getItem('auth-token')
+        },
+        body: JSON.stringify(product)
+    })
+    .then(res => res.json())
+    .then(data => {
+        if(data.result.acknowledged){
+            toast.success('Successfully Added A New Product')
+            setAddLoading(false)
+            e.target.reset();
+        }
+    })
   };
 
   return (
-    <div>
+    <div className="">
       <h1 className="text-4xl text-center">Please Add A Product</h1>
       <form onSubmit={addForm} className="grid sm:grid-cols-2 grid-cols-1 gap-2 p-5">
         <h1 className="my-auto text-xl">Product Name</h1>
@@ -120,7 +138,13 @@ const AddAProduct = () => {
           placeholder="Your Full Address"
           type="text"
         />    
-        <input className="btn btn-success sm:col-span-2 mt-5" type="submit" value="Add Product" />
+        {
+            addloading ?
+            <div className="sm:col-span-2 mt-5 mx-auto w-fit">
+                <Loading size={30} className=''/>
+            </div> : 
+            <input className="btn btn-success sm:col-span-2 mt-5" type="submit" value="Add Product" />
+        }
       </form>
     </div>
   );
