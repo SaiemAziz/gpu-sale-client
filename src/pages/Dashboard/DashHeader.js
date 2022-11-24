@@ -21,7 +21,7 @@ const DashHeader = ({role}) => {
   return (
     <div className="navbar bg-base-300 sticky top-0 z-50">
       <div className="navbar-start">
-          <label htmlFor="sidebar" className=" lg:hidden">
+          <label htmlFor="sidebar" className=" lg:hidden m-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"

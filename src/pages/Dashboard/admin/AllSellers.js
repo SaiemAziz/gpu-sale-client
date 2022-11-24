@@ -34,7 +34,7 @@ const AllSellers = () => {
     return <Navigate to='/dashboard/default'/>
     
     
-    let ad = (id) => {
+    let deleteSeller = (id) => {
         let surity = window.confirm('Want to delete this seller?')
         if(!surity)
         return;
@@ -49,6 +49,22 @@ const AllSellers = () => {
             if(data.result.acknowledged)
             {
                 toast.success('Seller Successfully Deleted')
+                refetch()
+            }
+          })
+    }
+
+    let verifySeller = (id) => {
+        fetch(`${process.env.REACT_APP_URL}/all-sellers?email=${user?.email}&id=${id}`, {
+            method: 'PUT',
+            headers: {
+                authtoken: localStorage.getItem('auth-token')
+            }
+          }).then(res => res.json())
+          .then(data => {
+            if(data.result.acknowledged)
+            {
+                toast.success('Seller Successfully Verified')
                 refetch()
             }
           })
@@ -76,9 +92,17 @@ const AllSellers = () => {
                 <td><img className="h-[50px] rounded-2xl" src={seller?.photoURL} alt="" /></td>
                 <td>{seller?.displayName || 'No Name'}</td>
                 <td>{seller?.email || 'No Email'}</td>
-                <td>
+                <td className='flex flex-col gap-2'>
                     
-                        <button className="btn btn-xs btn-error text-xs" onClick={()=>ad(seller?._id)}
+                        {
+                          !seller.verified ?
+                          <button className="btn btn-xs btn-info text-xs" onClick={()=>verifySeller(seller?._id)}
+                            >Verify
+                          </button> : 
+                          <p className='text-center font-bold text-success'>Verified</p> 
+                        }
+                    
+                        <button className="btn btn-xs btn-error text-xs" onClick={()=>deleteSeller(seller?._id)}
                             >Remove
                         </button> 
                     
