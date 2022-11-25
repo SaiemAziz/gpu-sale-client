@@ -5,8 +5,8 @@ const BookNowModal = ({p}) => {
   return (
     <div>
       <input type="checkbox" id="bookNow" className="modal-toggle" />
-      <div className="modal">
-        <div className="modal-box relative">
+      <div className="modal backdrop-blur-xl">
+        <div className="modal-box relative ">
           <label
             for="bookNow"
             className="btn btn-sm btn-circle absolute right-2 top-2"

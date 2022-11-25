@@ -37,9 +37,6 @@ const MyProducts = () => {
 
   // advertise handler
   let ad = (id) => {
-    let surity = window.confirm('Do you really want to delet the product?')
-    if(!surity)
-    return;
     
     fetch(`${process.env.REACT_APP_URL}/my-products?id=${id}&email=${user?.email}`, {
         method: 'PUT',
@@ -59,6 +56,10 @@ const MyProducts = () => {
 
   // remove handler
   let removeClicked = (id) => {
+    let surity = window.confirm('Do you really want to delete the product?')
+    if(!surity)
+    return;
+    
     fetch(`${process.env.REACT_APP_URL}/my-products?id=${id}&email=${user?.email}`, {
         method: 'DELETE',
         headers: {
