@@ -8,6 +8,7 @@ import {FcGoogle} from 'react-icons/fc'
 import {FiGithub} from 'react-icons/fi'
 import roleSet from '../../hooks/roleSet';
 import tokenSet from '../../hooks/tokenSet';
+import useRoleCheck from '../../hooks/useRoleCheck';
 
 const Login = () => {
     useTitle("Login")

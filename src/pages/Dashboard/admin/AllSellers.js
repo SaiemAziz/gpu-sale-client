@@ -34,28 +34,28 @@ const AllSellers = () => {
     return <Navigate to='/dashboard/default'/>
     
     
-    let deleteSeller = (id) => {
-        let surity = window.confirm('Want to delete this seller?')
-        if(!surity)
-        return;
+    // let deleteSeller = (id) => {
+    //     let surity = window.confirm('Want to delete this seller?')
+    //     if(!surity)
+    //     return;
 
-        fetch(`${process.env.REACT_APP_URL}/all-sellers?email=${user?.email}&id=${id}`, {
-            method: 'DELETE',
-            headers: {
-                authtoken: localStorage.getItem('auth-token')
-            }
-          }).then(res => res.json())
-          .then(data => {
-            if(data.result.acknowledged)
-            {
-                toast.success('Seller Successfully Deleted')
-                refetch()
-            }
-          })
-    }
+    //     fetch(`${process.env.REACT_APP_URL}/all-sellers?email=${user?.email}&id=${id}`, {
+    //         method: 'DELETE',
+    //         headers: {
+    //             authtoken: localStorage.getItem('auth-token')
+    //         }
+    //       }).then(res => res.json())
+    //       .then(data => {
+    //         if(data.result.acknowledged)
+    //         {
+    //             toast.success('Seller Successfully Deleted')
+    //             refetch()
+    //         }
+    //       })
+    // }
 
-    let verifySeller = (id) => {
-        fetch(`${process.env.REACT_APP_URL}/all-sellers?email=${user?.email}&id=${id}`, {
+    let updateSeller = (id, task) => {
+        fetch(`${process.env.REACT_APP_URL}/all-sellers?email=${user?.email}&id=${id}&task=${task}`, {
             method: 'PUT',
             headers: {
                 authtoken: localStorage.getItem('auth-token')
@@ -96,13 +96,13 @@ const AllSellers = () => {
                     
                         {
                           !seller.verified ?
-                          <button className="btn btn-xs btn-info text-xs" onClick={()=>verifySeller(seller?._id)}
+                          <button className="btn btn-xs btn-info text-xs" onClick={()=>updateSeller(seller?._id, 'verify')}
                             >Verify
                           </button> : 
                           <p className='text-center font-bold text-success'>Verified</p> 
                         }
                     
-                        <button className="btn btn-xs btn-error text-xs" onClick={()=>deleteSeller(seller?._id)}
+                        <button className="btn btn-xs btn-error text-xs" onClick={()=>updateSeller(seller?._id, 'ban')}
                             >Remove
                         </button> 
                     

@@ -34,7 +34,7 @@ const Categories = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {
             categories.map(c => 
-            <div key={c._id} className='card glass rounded-2xl p-5 flex flex-col justify-between'>
+            <div key={c._id} className='card glass rounded-2xl p-5 flex flex-col justify-between shadow-xl'>
                 <div>
                     <img className="rounded-2xl" src={c.image} alt="" />
                     <p className="text-2xl my-3 font-semibold">{c.category.replaceAll('-', ' ').toUpperCase()}</p>

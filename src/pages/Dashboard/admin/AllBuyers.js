@@ -35,13 +35,13 @@ const AllBuyers = () => {
 
 
 
-    let ad = (id) => {
+    let updateBuyer = (id) => {
         let surity = window.confirm('Want to delete this buyer?')
         if(!surity)
         return;
 
         fetch(`${process.env.REACT_APP_URL}/all-buyers?email=${user?.email}&id=${id}`, {
-            method: 'DELETE',
+            method: 'PUT',
             headers: {
                 authtoken: localStorage.getItem('auth-token')
             }
@@ -78,7 +78,7 @@ const AllBuyers = () => {
                 <td>{buyer?.email || 'No Email'}</td>
                 <td>
                     
-                        <button className="btn btn-xs btn-error text-xs" onClick={()=>ad(buyer?._id)}
+                        <button className="btn btn-xs btn-error text-xs" onClick={()=>updateBuyer(buyer?._id)}
                             >Remove
                         </button> 
                     

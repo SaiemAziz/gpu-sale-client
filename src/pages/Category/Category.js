@@ -56,7 +56,7 @@ const Category = () => {
         ))}
       </div>
 
-      {bookProduct && <BookNowModal p={bookProduct} />}
+      {bookProduct && <BookNowModal p={bookProduct} setP={setBookProduct} refetch={refetch}/>}
 
       {products.length === 0 && (
         <p>No product is available now in this category</p>

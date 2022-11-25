@@ -41,7 +41,7 @@ const Advertise = () => {
           />
         ))}
       </div>
-      {bookProduct && <BookNowModal p={bookProduct} />}
+      {bookProduct && <BookNowModal p={bookProduct} setP={setBookProduct} refetch={refetch}/>}
         </div>
     );
 };

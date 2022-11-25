@@ -107,7 +107,9 @@ const MyProducts = () => {
                 <td>{product?.realDate}</td>
                 <td>{product?.used} yrs</td>
                 <td>{product?.status}</td>
-                <td className="flex flex-col gap 2">
+                {
+                  product?.status === 'available' &&
+                  <td className="flex flex-col gap 2">
                     <button className="btn btn-xs btn-error text-xs"   onClick={()=>removeClicked(product?._id)}
                             >Remove
                         </button>
@@ -119,6 +121,7 @@ const MyProducts = () => {
                         <p className="text-success font-bold">Advertised</p>
                     }
                 </td>
+                }
               </tr>
             ))}
           </tbody>

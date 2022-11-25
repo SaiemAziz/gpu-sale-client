@@ -36,16 +36,19 @@ const SingleProduct = ({p, refetch, setBookProduct}) => {
     
     if(p.status === 'available')
     return (
-        <div className='card glass flex flex-col justify-between p-5 '>
+        <div className='card glass flex flex-col justify-between p-5 shadow-xl'>
                 <div>
                     <img className="rounded-2xl" src={p.photoURL} alt="" />
                     <p className="text-2xl my-3 font-semibold"> {p.name}</p>
-                    <p className="text-left my-3 font-semibold flex gap-2">Seller: {p.sellerName} {blueTick && <GoVerified className='text-blue-600 my-auto'/>}</p>
-                    <div className='flex justify-between'>
-                        <p className="text-purple-500 font-bold text-justify">Resale Price: {p.resalePrice}$</p>
-                        <p className="text-purple-500 font-bold text-justify">Buying Date: {p.realDate}</p>
+                    <div className='flex justify-between my-4'> 
+                        <p className="text-left font-semibold flex gap-2">Seller: {p.sellerName} {blueTick && <GoVerified className='text-blue-600 my-auto'/>}</p>
+                        <p className="font-semibold text-justify">Contact: {p.mobileNo}</p>
                     </div>
-                    <p className="font-semibold text-xl text-justify">Condition: {p.condition}</p>
+                    <div className='flex justify-between text-xl'>
+                        <p className="text-purple-500 font-bold text-justify">Resale Price: {p.resalePrice}$</p>
+                        <p className="text-purple-500 font-bold text-justify">Used: {p.used} yrs</p>
+                    </div>
+                    <p className="font-semibold text-xl text-success text-end mt-3">Condition: {p.condition}</p>
                     <p className="font-semibold mt-5 text-justify">Description:</p>
                     <p className="italic text-justify">{p.description}</p>
                 </div>
