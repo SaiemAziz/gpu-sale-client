@@ -1,8 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, {useState} from 'react';
 import { Loading } from '../../shared/components/Loading';
+import BookNowModal from '../Category/BookNowModal';
+import SingleProduct from '../Category/SingleProduct';
 
 const Advertise = () => {
+
+  let [bookProduct, setBookProduct] = useState([])
+
     const {
         data: products = [],
         refetch,
@@ -27,8 +32,16 @@ const Advertise = () => {
 
     if(products?.length > 0)
     return (
-        <div className='border-t-4 border-black my-5 py-5 px-5'>
+        <div className='border-b-4 border-black my-5 py-5 px-5'>
             <h1 className='text-left text-4xl font-semibold my-5'>Advertisement {products.length}</h1>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+        {products.map((p) => (
+         p.advertise && <SingleProduct key={p._id} p={p} refetch={refetch} 
+          setBookProduct = {setBookProduct}
+          />
+        ))}
+      </div>
+      {bookProduct && <BookNowModal p={bookProduct} />}
         </div>
     );
 };

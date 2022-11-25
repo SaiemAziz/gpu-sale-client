@@ -40,7 +40,7 @@ const SingleProduct = ({p, refetch, setBookProduct}) => {
                 <div>
                     <img className="rounded-2xl" src={p.photoURL} alt="" />
                     <p className="text-2xl my-3 font-semibold"> {p.name}</p>
-                    <p className="text-left my-3 font-semibold flex">Seller: {p.sellerName} {blueTick && <GoVerified className='text-blue-600 my-auto'/>}</p>
+                    <p className="text-left my-3 font-semibold flex gap-2">Seller: {p.sellerName} {blueTick && <GoVerified className='text-blue-600 my-auto'/>}</p>
                     <div className='flex justify-between'>
                         <p className="text-purple-500 font-bold text-justify">Resale Price: {p.resalePrice}$</p>
                         <p className="text-purple-500 font-bold text-justify">Buying Date: {p.realDate}</p>
