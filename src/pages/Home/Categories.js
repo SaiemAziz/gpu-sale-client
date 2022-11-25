@@ -11,7 +11,7 @@ const Categories = () => {
   } = useQuery({
     queryKey: ["categories"],
     queryFn: async () => {
-      const res = await fetch(`${process.env.REACT_APP_URL}/categories`, {
+      const res = await fetch(`${process.env.REACT_APP_URL}/category`, {
         headers: {
           authtoken: localStorage.getItem("auth-token"),
         },
@@ -40,7 +40,7 @@ const Categories = () => {
                     <p className="text-2xl my-3 font-semibold">{c.category.replaceAll('-', ' ').toUpperCase()}</p>
                     <p className="italic text-justify">{c.description}</p>
                 </div>
-                <Link to={`/category/${c._id}`} className="btn btn-secondary mt-5">All Products</Link>
+                <Link to={`/category/${c.category}`} className="btn btn-secondary mt-5">All Products</Link>
             </div>    
             )
         }

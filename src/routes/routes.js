@@ -32,7 +32,7 @@ export const routes = createBrowserRouter([
                 element: <Home/>
             },
             {
-                path: '/categories',
+                path: '/category/:title',
                 element: <Category/>
             },
             {
