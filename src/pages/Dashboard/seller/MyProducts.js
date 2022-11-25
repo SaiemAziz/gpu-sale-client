@@ -37,6 +37,10 @@ const MyProducts = () => {
 
   // advertise handler
   let ad = (id) => {
+    let surity = window.confirm('Do you really want to delet the product?')
+    if(!surity)
+    return;
+    
     fetch(`${process.env.REACT_APP_URL}/my-products?id=${id}&email=${user?.email}`, {
         method: 'PUT',
         headers: {
@@ -48,6 +52,24 @@ const MyProducts = () => {
         if(data.result.acknowledged)
         {
             toast.success('Successfully Advertising')
+            refetch()
+        }
+      })
+  }
+
+  // remove handler
+  let removeClicked = (id) => {
+    fetch(`${process.env.REACT_APP_URL}/my-products?id=${id}&email=${user?.email}`, {
+        method: 'DELETE',
+        headers: {
+            authtoken: localStorage.getItem('auth-token')
+        }
+      })
+      .then(res => res.json())
+      .then(data => {
+        if(data.result.acknowledged)
+        {
+            toast.success('Successfully Removed')
             refetch()
         }
       })
@@ -84,7 +106,10 @@ const MyProducts = () => {
                 <td>{product?.realDate}</td>
                 <td>{product?.used} yrs</td>
                 <td>{product?.status}</td>
-                <td>
+                <td className="flex flex-col gap 2">
+                    <button className="btn btn-xs btn-error text-xs"   onClick={()=>removeClicked(product?._id)}
+                            >Remove
+                        </button>
                     {
                         !product?.advertise ?
                         <button className="btn btn-xs btn-info text-xs" onClick={()=>ad(product?._id)}

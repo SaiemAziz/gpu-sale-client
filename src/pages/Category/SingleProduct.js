@@ -1,11 +1,15 @@
 import React, {useContext} from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../context/Auth';
+import useBlueTick from '../../hooks/useBlueTick';
+import { Loading } from '../../shared/components/Loading';
+import {GoVerified} from 'react-icons/go'
 
-const SingleProduct = ({p, refetch}) => {
+const SingleProduct = ({p, refetch, setBookProduct}) => {
 
     let {user} = useContext(AuthContext)
-
+    let {blueTick, verifyLoading} = useBlueTick(p.sellerEmail)
     let reported = id => {
         fetch(`${process.env.REACT_APP_URL}/report-a-item?email=${user.email}&id=${id}`,{
             method: 'PUT',
@@ -13,19 +17,40 @@ const SingleProduct = ({p, refetch}) => {
                 authtoken : localStorage.getItem('auth-token')
             }
         }).then(res => res.json())
-        .then(data => console.log(data.result))
-    }
+        .then(data => {
+            if(data.result.acknowledged)
+            {
+                toast.success('Successfully reported the product to Admin')
+                refetch()
+            }
+            
+        })
+    }   
 
+    if(verifyLoading)
+    return (
+        <div className="flex justify-center items-center my-20">
+          <Loading size={50}></Loading>
+        </div>
+    ); 
+    
+    if(p.status === 'available')
     return (
         <div className='card glass flex flex-col justify-between p-5 '>
-                    <div>
+                <div>
                     <img className="rounded-2xl" src={p.photoURL} alt="" />
                     <p className="text-2xl my-3 font-semibold"> {p.name}</p>
-                    <p className="text-left my-3 font-semibold">Seller: {p.email}</p>
+                    <p className="text-left my-3 font-semibold flex">Seller: {p.sellerName} {blueTick && <GoVerified className='text-blue-600 my-auto'/>}</p>
+                    <div className='flex justify-between'>
+                        <p className="text-purple-500 font-bold text-justify">Resale Price: {p.resalePrice}$</p>
+                        <p className="text-purple-500 font-bold text-justify">Buying Date: {p.realDate}</p>
+                    </div>
+                    <p className="font-semibold text-xl text-justify">Condition: {p.condition}</p>
+                    <p className="font-semibold mt-5 text-justify">Description:</p>
                     <p className="italic text-justify">{p.description}</p>
                 </div>
                 <div className='mt-5 flex justify-between'>
-                <Link to={`/payment/${p._id}`} className="btn btn-secondary">Book Now</Link>
+                <label htmlFor='bookNow' onClick={()=> setBookProduct(p)} className="btn btn-secondary">Book Now</label>
                 <button className='btn btn-error'
                         onClick={()=>reported(p._id)}
                     >Report</button>

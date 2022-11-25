@@ -45,18 +45,22 @@ const AddAProduct = () => {
 
     let product = {
         name : e.target.name.value,
-        email : user?.email,
+        sellerEmail : user?.email,
+        sellerName : user?.displayName,
         description : e.target.description.value,
         originalPrice : e.target.originalPrice.value,
         resalePrice : e.target.resalePrice.value,
         mobileNo : e.target.mobileNo.value,
+        address : e.target.address.value,
         category : e.target.category.value,
+        condition : e.target.condition.value,
         used : used,
         postDate : postDate,
         realDate : realDate,
         advertise : false,
         status : 'available',
-        photoURL : data.data.url
+        photoURL : data.data.url,
+        reported : false,
     }
 
     fetch(`${process.env.REACT_APP_URL}/add-a-product`,{
@@ -116,9 +120,9 @@ const AddAProduct = () => {
         </select>   
         <h1 className="my-auto text-xl">Condition</h1>
         <select name="condition" className="select select-info">
-          <option value="good">Good</option>  
-          <option value="average">Average</option>  
-          <option value="not-good">Not Good</option>    
+          <option value="Good">Good</option>  
+          <option value="Average">Average</option>  
+          <option value="Not Good">Not Good</option>    
         </select>   
         <h1 className="my-auto text-xl">Original Price</h1>
         <input

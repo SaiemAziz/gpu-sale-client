@@ -47,7 +47,7 @@ const DashHeader = ({role}) => {
       <div className="navbar-end">
         {user ? (
           <div className="flex gap-3">
-            <p className="my-auto italic font-bold text-amber-600">{role.toUpperCase()}</p>
+            <p className="my-auto italic font-bold text-purple-600">{role.toUpperCase()}</p>
             <div
               className="h-[30px] w-[30px] my-auto tooltip tooltip-bottom tooltip-info"
               data-tip={user?.displayName || "No Name"}
