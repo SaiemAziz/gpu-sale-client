@@ -50,6 +50,7 @@ const AddAProduct = () => {
         originalPrice : e.target.originalPrice.value,
         resalePrice : e.target.resalePrice.value,
         mobileNo : e.target.mobileNo.value,
+        category : e.target.category.value,
         used : used,
         postDate : postDate,
         realDate : realDate,
@@ -106,6 +107,19 @@ const AddAProduct = () => {
           placeholder="Product Description"
           type="text"
         />    
+        <h1 className="my-auto text-xl">Category</h1>
+        <select name="category" className="select select-info">
+          <option value="rtx-3060">RTX 3060</option>  
+          <option value="gtx-1660">GTX 1660</option>  
+          <option value="rx-6600-xt">RX 6600 XT</option>  
+          <option value="rtx-2080-ti">RTX 2080 TI</option>  
+        </select>   
+        <h1 className="my-auto text-xl">Condition</h1>
+        <select name="condition" className="select select-info">
+          <option value="good">Good</option>  
+          <option value="average">Average</option>  
+          <option value="not-good">Not Good</option>    
+        </select>   
         <h1 className="my-auto text-xl">Original Price</h1>
         <input
           className="input input-info"
