@@ -21,9 +21,11 @@ const SingleProduct = ({p, refetch, setBookProduct}) => {
             if(data.result.acknowledged)
             {
                 toast.success('Successfully reported the product to Admin')
-                refetch()
             }
-            
+            else{
+                toast.error('Only Buyer can report a product')
+            }
+            refetch()
         })
     }   
 
@@ -59,7 +61,7 @@ const SingleProduct = ({p, refetch, setBookProduct}) => {
                 >Report</button>
                 }
                 </div>
-                </div>    
+        </div>    
     );
 };
 

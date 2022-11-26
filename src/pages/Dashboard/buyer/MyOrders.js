@@ -98,7 +98,7 @@ const MyOrders = () => {
                       Remove
                     </button>
                     <Link
-                      to="/payment"
+                      to={`/dashboard/payment/${product?._id}`}
                       className="btn btn-xs btn-success text-xs my-auto"
                     >
                       Payment

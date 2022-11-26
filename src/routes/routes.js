@@ -9,6 +9,7 @@ import AllSellers from "../pages/Dashboard/admin/AllSellers";
 import ReportedItems from "../pages/Dashboard/admin/ReportedItems";
 import MyOrders from "../pages/Dashboard/buyer/MyOrders";
 import MyWishlist from "../pages/Dashboard/buyer/MyWishlist";
+import Payment from "../pages/Dashboard/buyer/Payment/Payment";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import AddAProduct from "../pages/Dashboard/seller/AddAProduct";
 import MyBuyers from "../pages/Dashboard/seller/MyBuyers";
@@ -95,6 +96,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/dashboard/my-products',
                 element: <Auth><Private><MyProducts/></Private></Auth>
+            },
+            {
+                path: '/dashboard/payment/:id',
+                element: <Auth><Private><Payment/></Private></Auth>
             },
         ]
     }

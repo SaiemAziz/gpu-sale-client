@@ -9,3 +9,7 @@
 * I used Express.js for back-end.
 * Database was used MongoDB.
 * Login and Registration authentication were implemented by Firebase.
+
+adminEmail: sayem@gmail.com
+
+adminPassword: 123456789

@@ -9,7 +9,7 @@ import Header from './shared/Header';
 function App() {
 
   return (
-    <div className="App max-w-7xl mx-auto">
+    <div className="App max-w-7xl mx-auto text-neutral-focus">
 
       {/* main page */}
       <div className='min-h-screen flex flex-col justify-between'>

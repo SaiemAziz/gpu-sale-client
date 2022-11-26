@@ -29,7 +29,7 @@ const Categories = () => {
     );
 
   return (
-    <div className=" my-5 py-5 px-5">
+    <div className=" pb-10 px-5 border-b-4 border-neutral">
       <h1 className="text-right text-4xl font-semibold my-5">Categories : {categories.length} Types</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {

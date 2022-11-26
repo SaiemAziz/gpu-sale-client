@@ -8,14 +8,14 @@ const Header = () => {
   let navigate = useNavigate();
   let menu = (
     <>
-      <NavLink className="btn btn-ghost" to="/home">
+      <NavLink className={({isActive})=>isActive ? 'btn-ghost text-purple-500 font-bold btn' : 'btn btn-ghost font-bold'} to="/home">
         Home
       </NavLink>
-      <NavLink className="btn btn-ghost" to="/blogs">
+      <NavLink className={({isActive})=>isActive ? 'btn-ghost text-purple-500 font-bold btn' : 'btn btn-ghost font-bold'} to="/blogs">
         Blogs
       </NavLink>
       {
-        user && <NavLink className="btn btn-ghost" to="/dashboard">
+        user && <NavLink className={({isActive})=>isActive ? 'btn-ghost text-purple-500 font-bold btn' : 'btn btn-ghost font-bold'} to="/dashboard">
         Dashboard
       </NavLink>
       }

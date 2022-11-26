@@ -10,7 +10,7 @@ const Dashboard = () => {
   let { user } = useContext(AuthContext);
 
   let { role, loading } = useRoleCheck(user?.email);
-  useTitle(role.toUpperCase()+'-DASHBOARD')
+  useTitle(role?.toUpperCase()+'-DASHBOARD')
 
   let menu = <>
   {
@@ -46,7 +46,7 @@ const Dashboard = () => {
     );
 
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto text-neutral-focus">
       <DashHeader role={role}/>
       <div className="h-screen drawer drawer-mobile w-full">
       <input id="sidebar" type="checkbox" className="drawer-toggle" />
