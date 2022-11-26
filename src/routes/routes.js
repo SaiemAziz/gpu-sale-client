@@ -14,6 +14,7 @@ import AddAProduct from "../pages/Dashboard/seller/AddAProduct";
 import MyBuyers from "../pages/Dashboard/seller/MyBuyers";
 import MyProducts from "../pages/Dashboard/seller/MyProducts";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import ErrorPage2 from "../pages/ErrorPage/ErrorPage2";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login&Register/Login";
 import Register from "../pages/Login&Register/Register";
@@ -48,12 +49,12 @@ export const routes = createBrowserRouter([
                 element: <Register/>
             },
         ],
-        errorElement: <ErrorPage/>
+        errorElement: <ErrorPage2/>
     },
     {
         path: '/dashboard',
         element: <Auth><Private><Dashboard/></Private></Auth>,
-        errorElement: <ErrorPage/>,
+        errorElement: <ErrorPage2/>,
         children: [
             {
                 index: true,

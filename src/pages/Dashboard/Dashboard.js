@@ -7,10 +7,10 @@ import { Loading } from "../../shared/components/Loading";
 import Header from '../../shared/Header'
 import DashHeader from "./DashHeader";
 const Dashboard = () => {
-  useTitle('Dashboard')
   let { user } = useContext(AuthContext);
 
   let { role, loading } = useRoleCheck(user?.email);
+  useTitle(role.toUpperCase()+'-DASHBOARD')
 
   let menu = <>
   {

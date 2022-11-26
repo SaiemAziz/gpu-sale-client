@@ -48,7 +48,7 @@ const MyProducts = () => {
       .then(data => {
         if(data.result.acknowledged)
         {
-            toast.success('Successfully Advertising')
+            toast.success('Successfully Advertising at Home page')
             refetch()
         }
       })
@@ -106,11 +106,11 @@ const MyProducts = () => {
                 <td>{product?.postDate}</td>
                 <td>{product?.realDate}</td>
                 <td>{product?.used} yrs</td>
-                <td>{product?.status}</td>
+                <td>{ product?.status === 'booked' ? 'available' : product?.status }</td>
                 {
-                  product?.status === 'available' &&
-                  <td className="flex flex-col gap 2">
-                    <button className="btn btn-xs btn-error text-xs"   onClick={()=>removeClicked(product?._id)}
+                  product?.status !== 'sold' &&
+                  <td className="flex flex-col">
+                    <button className="btn btn-xs mb-3 btn-error text-xs"   onClick={()=>removeClicked(product?._id)}
                             >Remove
                         </button>
                     {

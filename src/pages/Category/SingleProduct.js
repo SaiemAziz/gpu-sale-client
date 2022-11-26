@@ -34,7 +34,6 @@ const SingleProduct = ({p, refetch, setBookProduct}) => {
         </div>
     ); 
     
-    if(p.status === 'available')
     return (
         <div className='card glass flex flex-col justify-between p-5 shadow-xl'>
                 <div>

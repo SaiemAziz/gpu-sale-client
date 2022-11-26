@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Navigate, useLocation } from "react-router-dom";
+import { Loading } from "../shared/components/Loading";
 import { AuthContext } from "./Auth";
 
 const Private = ({ children }) => {
@@ -16,7 +17,7 @@ const Private = ({ children }) => {
   else if (loading)
   return (
     <div className="flex items-center justify-center mt-10 ">
-      <div className="w-10 h-10 border-b-4 border-r-4 border-red-900 rounded-full animate-spin"></div>
+      <Loading size={50}/>
     </div>
   ) 
   

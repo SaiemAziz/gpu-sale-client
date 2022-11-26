@@ -40,11 +40,12 @@ const BookNowModal = ({p, setP, refetch}) => {
     .then(data=>{
       if(data.result.acknowledged){
         setModalLoading(false)
-        toast.success('Successfully Booked')
+        if(data.result?.previous)
+          toast.error('Already Booked once. Check My orders')
+        else
+          toast.success('Successfully Booked. Check My orders')
         refetch()
-        setInterval(()=>{
-          setP(null)
-        }, 1000)
+        setP(null)
       }
     })
   }

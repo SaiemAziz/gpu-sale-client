@@ -120,9 +120,9 @@ const AddAProduct = () => {
         </select>   
         <h1 className="my-auto text-xl">Condition</h1>
         <select name="condition" className="select select-info">
+          <option value="Excellent">Excellent</option>  
           <option value="Good">Good</option>  
-          <option value="Average">Average</option>  
-          <option value="Not Good">Not Good</option>    
+          <option value="Fair">Fair</option>    
         </select>   
         <h1 className="my-auto text-xl">Original Price</h1>
         <input
