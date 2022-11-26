@@ -50,7 +50,7 @@ const MyBuyers = () => {
           </thead>
           <tbody>
             {buyers.map((buyer, i) => (
-              <tr key={i}>
+              <tr key={i} className='hover'>
                 <th className="">{i + 1}</th>
                 <td><img className="h-[50px] rounded-2xl" src={buyer?.photoURL} alt="" /></td>
                 <td>{buyer?.displayName || 'No Name'}</td>

@@ -13,7 +13,7 @@ const MyWishlist = () => {
     if(role !== 'buyer')
     return <Navigate to='/dashboard/default'/>
     return (
-        <div className="flex justify-center items-center text-4xl text-center mt-40 mx-5"><p>Coming Sooon</p></div>
+        <div className="flex justify-center items-center text-4xl text-center mt-40 mx-5"><p>Wishlist Feature Comming Soon</p></div>
     );
 };
 

@@ -53,9 +53,11 @@ const SingleProduct = ({p, refetch, setBookProduct}) => {
                 </div>
                 <div className='mt-5 flex justify-between'>
                 <label htmlFor='bookNow' onClick={()=> setBookProduct(p)} className="btn btn-secondary">Book Now</label>
-                <button className='btn btn-error'
-                        onClick={()=>reported(p._id)}
-                    >Report</button>
+                {
+                    user && <button className='btn btn-error'
+                    onClick={()=>reported(p._id)}
+                >Report</button>
+                }
                 </div>
                 </div>    
     );
