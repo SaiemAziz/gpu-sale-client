@@ -65,11 +65,11 @@ const ReportedItems = () => {
             <tr>
               <th>SN.</th>
               <th>Picture</th>
+              <th>Option</th>
               <th>Name</th>
               <th>Seller</th>
               <th>Resale Price</th>
               <th>Status</th>
-              <th>Option</th>
             </tr>
           </thead>
           <tbody>
@@ -83,10 +83,6 @@ const ReportedItems = () => {
                     alt=""
                   />
                 </td>
-                <td>{product?.name}</td>
-                <td>{product?.sellerName}</td>
-                <td>{product?.resalePrice}$</td>
-                <td>{product?.status}</td>
                 <td className="">
                   <button
                     className="btn btn-xs my-auto btn-error text-xs"
@@ -95,6 +91,10 @@ const ReportedItems = () => {
                     Remove
                   </button>
                 </td>
+                <td>{product?.name}</td>
+                <td>{product?.sellerName}</td>
+                <td>{product?.resalePrice}$</td>
+                <td>{product?.status}</td>
               </tr>
             ))}
           </tbody>

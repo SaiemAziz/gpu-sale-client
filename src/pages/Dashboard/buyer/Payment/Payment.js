@@ -5,13 +5,13 @@ import { AuthContext } from '../../../../context/Auth';
 import useRoleCheck from '../../../../hooks/useRoleCheck';
 import { useTitle } from '../../../../hooks/useTitle';
 import { Loading } from '../../../../shared/components/Loading';
+import CardPayment from './CardPayment';
 
 const Payment = () => {
     useTitle('Payment')
     let [p, setP] = useState({})
     let location = useLocation()
     let id = location.pathname.replace('/dashboard/payment/','')
-    let [payLoading, setPayLoading] = useState(false)
     let { user } = useContext(AuthContext);
     let { role, loading } = useRoleCheck(user?.email);
     
@@ -29,30 +29,23 @@ const Payment = () => {
     if(role !== 'buyer')
     return <Navigate to='/dashboard/default'/>
 
-    
-
-    let checkedForm = async e => {
-        e.preventDefault()
-        setPayLoading(true)
-
-    }
 
     return (
-        <div className='my-10 gap-5 grid grid-cols-1 md:grid-cols-2 text-center py-10'>
-           <div>
-                <h1 className='text-2xl'>You are buying </h1>
-                <h1 className='text-4xl italic font-semibold text-info my-3'>{p?.name}</h1>
-                <img className='max-w-xs mx-auto rounded-2xl shadow-xl' src={p?.photoURL} alt="" />
+        <div className='gap-5 grid grid-cols-1 md:grid-cols-2 text-center py-10 overf'>
+           <div className='flex p-5 flex-col justify-between'>
+                <h1 className='text-3xl'>You are buying </h1>
+                <h1 className='text-4xl italic font-semibold text-info m-3 px-5'>{p?.product?.name}</h1>
+                <img className='max-w-xs mx-auto rounded-2xl shadow-xl' src={p?.product?.photoURL} alt="" />
            </div>
-           <div>
+           <div className='p-5'>
                 <h1 className='text-4xl'>Buyer Information</h1>
-                <form onSubmit={checkedForm} className="grid sm:grid-cols-2 grid-cols-1 gap-5 p-5 text-left">
+                <form className="grid sm:grid-cols-2 grid-cols-1 gap-5 p-5 text-left">
                 <h1 className="my-auto text-xl">Category</h1>
                     <input
                     className="input input-info"
                     required
                     name="category"
-                    value={p?.category?.replaceAll('-',' ').toUpperCase()}
+                    value={p?.product?.category?.replaceAll('-',' ').toUpperCase()}
                     type="text"
                     disabled
                     />
@@ -97,14 +90,14 @@ const Payment = () => {
                     className="input input-info"
                     required
                     disabled
-                    value={p?.resalePrice+' $'}
+                    value={p?.product?.resalePrice+' $'}
                     name="address"
                     type="text"
                     />
                 </form> 
            </div>
            <div className='md:col-span-2'>
-
+            <CardPayment p={p}/>
            </div>
         </div>
     );
