@@ -8,14 +8,14 @@ const Header = () => {
   let navigate = useNavigate();
   let menu = (
     <>
-      <NavLink className={({isActive})=>isActive ? 'btn-ghost text-orange-500 font-bold btn' : 'btn btn-ghost font-bold'} to="/home">
+      <NavLink className={({isActive})=>isActive ? 'btn-ghost text-accent-content underline font-bold btn' : 'btn btn-ghost font-bold'} to="/home">
         Home
       </NavLink>
-      <NavLink className={({isActive})=>isActive ? 'btn-ghost text-orange-500 font-bold btn' : 'btn btn-ghost font-bold'} to="/blogs">
+      <NavLink className={({isActive})=>isActive ? 'btn-ghost text-accent-content underline font-bold btn' : 'btn btn-ghost font-bold'} to="/blogs">
         Blogs
       </NavLink>
       {
-        user && <NavLink className={({isActive})=>isActive ? 'btn-ghost text-orange-500 font-bold btn' : 'btn btn-ghost font-bold'} to="/dashboard">
+        user && <NavLink className={({isActive})=>isActive ? 'btn-ghost text-accent-content underline font-bold btn' : 'btn btn-ghost font-bold'} to="/dashboard">
         Dashboard
       </NavLink>
       }
@@ -32,9 +32,9 @@ const Header = () => {
   };
 
   return (
-    <div className="navbar bg-base-300 sticky top-0 z-50">
+    <div className="navbar bg-base-300 shadow-xl sticky top-0 z-50">
       <div className="navbar-start">
-        <div className="dropdown">
+        <div className="dropdown shadow-xl">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"

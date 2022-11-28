@@ -10,23 +10,23 @@ const ExtraSection = () => {
         value : 2669
     }
   ]
-  const COLORS = ['#543D19', '#873e23'];
-  const COLORS2 = ['#873e23','#543D19' ];
+  const COLORS = ['#885C5C', '#778F86'];
+  const COLORS2 = ['#778F86','#885C5C' ];
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 my-10 p-5 text-xl font-bold gap-10">
       <div className="stats stats-vertical shadow-xl">
         <div className="stat">
           <div className="stat-title font-normal text-left text-4xl italic">Buyers</div>
-          <div className="stat-value text-8xl text-neutral">4,321</div>
-          <div className="stat-desc text-success text-right text-xl font-bold mt-3">
+          <div className="stat-value text-8xl text-success">4,321</div>
+          <div className="stat-desc text-success-content text-right text-xl font-bold mt-3">
             ↗︎ 400 (22%) from last year
           </div>
         </div>
 
         <div className="stat">
           <div className="stat-title font-normal text-left text-4xl italic">Sellers</div>
-          <div className="stat-value text-8xl text-neutral">2,669</div>
-          <div className="stat-desc text-amber-600 text-right text-xl font-bold mt-3">
+          <div className="stat-value text-8xl text-error">2,669</div>
+          <div className="stat-desc text-error-content text-right text-xl font-bold mt-3">
             ↘︎ 190 (14%) from last year
           </div>
         </div>

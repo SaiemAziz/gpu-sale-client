@@ -68,9 +68,9 @@ const AllBuyers = () => {
               <tr>
                 <th>SN.</th>
                 <th>Picture</th>
+                <th>Option</th>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Option</th>
               </tr>
             </thead>
             <tbody>
@@ -84,8 +84,6 @@ const AllBuyers = () => {
                       alt=""
                     />
                   </td>
-                  <td>{buyer?.displayName || "No Name"}</td>
-                  <td>{buyer?.email || "No Email"}</td>
                   <td>
                     <button
                       className="btn btn-xs btn-error text-xs"
@@ -94,6 +92,8 @@ const AllBuyers = () => {
                       Remove
                     </button>
                   </td>
+                  <td>{buyer?.displayName || "No Name"}</td>
+                  <td>{buyer?.email || "No Email"}</td>
                 </tr>
               ))}
             </tbody>

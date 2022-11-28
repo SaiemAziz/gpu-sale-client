@@ -86,7 +86,6 @@ const CardCheckOutForm = ({price, p}) => {
           body : JSON.stringify({paymentIntent, product_ID})
         }).then(res => res.json())
         .then(data => {
-          console.log(data)
           if(data.result2.acknowledged)
           {
             navigate('/dashboard/my-orders')
@@ -128,7 +127,7 @@ const CardCheckOutForm = ({price, p}) => {
         <div className='flex justify-center'>
           <Loading size={50} />
         </div>
-        : <button type="submit" className='btn btn-outline font-semibold px-20 btn-info' disabled={!stripe || !cardSecret}>
+        : <button type="submit" className='btn font-semibold px-20 btn-info' disabled={!stripe || !cardSecret}>
         Pay
       </button>
       }

@@ -46,7 +46,7 @@ const Dashboard = () => {
     );
 
   return (
-    <div className="max-w-7xl mx-auto text-neutral-focus">
+    <div className="max-w-7xl mx-auto  text-primary-focus">
       <DashHeader role={role}/>
       <div className="h-screen drawer drawer-mobile w-full">
       <input id="sidebar" type="checkbox" className="drawer-toggle" />

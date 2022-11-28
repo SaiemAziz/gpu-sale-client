@@ -37,10 +37,12 @@ const Categories = () => {
             <div key={c._id} className='card glass rounded-2xl p-5 flex flex-col justify-between shadow-xl'>
                 <div>
                     <img className="rounded-2xl" src={c.image} alt="" />
-                    <p className="text-2xl my-3 font-semibold">{c.category.replaceAll('-', ' ').toUpperCase()}</p>
-                    <p className="italic text-justify">{c.description}</p>
                 </div>
-                <Link to={`/category/${c.category}`} className="btn btn-secondary mt-5">All Products</Link>
+                <div>
+                    <p className="text-4xl my-3 font-bold text-info-content text-left">{c.category.replaceAll('-', ' ').toUpperCase()}</p>
+                    <p className="italic text-justify">{c.description}</p>
+                    <Link to={`/category/${c.category}`} className="btn btn-primary mt-5 hover:scale-105 w-full">All Products</Link>
+                </div>
             </div>    
             )
         }

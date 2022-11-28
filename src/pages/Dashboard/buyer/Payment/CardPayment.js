@@ -13,7 +13,7 @@ const stripePromise = loadStripe(process.env.REACT_APP_stripe_PK)
 const CardPayment = ({p}) => {
   return (
     <div className="max-w-lg mx-auto my-5 bg-base-300 p-5 rounded-2xl">
-        <h1 className="font-bold text-xl italic text-info">Card Information</h1>
+        <h1 className="font-bold text-xl italic text-info-content">Card Information</h1>
       <Elements stripe={stripePromise}>
         <CardCheckOutForm price={p?.product?.resalePrice} p={p}/>
       </Elements>

@@ -47,8 +47,8 @@ const Category = () => {
 
   return (
     <div>
-      <h1 className="text-4xl font-semibold my-10">Category : {title}</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+      <h1 className="text-4xl font-semibold my-10 ">Category : {title}</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10 px-5">
         {products.map((p) => (
           <SingleProduct key={p._id} p={p} refetch={refetch} 
           setBookProduct = {setBookProduct}

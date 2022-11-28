@@ -12,7 +12,7 @@ const Banner = () => {
       />
       <div className="card-body">
         <div className="my-auto gap-5 flex flex-col text-white">
-          <h1 className="font-extrabold text-success-content text-2xl md:text-4xl lg:text-6xl">
+          <h1 className="font-extrabold text-primary-content text-2xl md:text-4xl lg:text-6xl">
             <MovingComponent
               type="slideInFromTop"
               duration="1300ms"

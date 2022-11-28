@@ -21,7 +21,10 @@ const Payment = () => {
                 authtoken : localStorage.getItem('auth-token')
             }
         }).then(res => res.json())
-        .then(data => setP(data.product))
+        .then(data => {
+            setP(data.product)
+            console.log(data.product)
+        })
     },[user, id])
     
     if(loading)

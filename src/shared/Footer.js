@@ -4,8 +4,8 @@ import {FaFacebookSquare, FaLinkedin} from 'react-icons/fa'
 const Footer = () => {
   let year = new Date().getFullYear();
     return (
-        <div>
-            <footer className="footer footer-center p-10 bg-base-300 text-primary-content">
+        <div className=''>
+            <footer className="footer footer-center p-10 bg-base-300 text-info-content">
   <div>
   <Link to='/' className="btn btn-ghost normal-case text-xl font-extrabold hover:bg-base-300">
           <p className="px-3 py-2 text-base-300 bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl">GPU</p>

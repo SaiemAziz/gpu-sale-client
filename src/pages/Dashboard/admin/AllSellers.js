@@ -85,9 +85,9 @@ const AllSellers = () => {
               <tr>
                 <th>SN.</th>
                 <th>Picture</th>
+                <th>Option</th>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Option</th>
               </tr>
             </thead>
             <tbody>
@@ -101,15 +101,6 @@ const AllSellers = () => {
                       alt=""
                     />
                   </td>
-                  <td>
-                    <p className="flex items-center gap-3">
-                      {seller?.displayName || "No Name"}{" "}
-                      {seller?.verified && (
-                        <GoVerified className="text-blue-600 my-auto" />
-                      )}
-                    </p>
-                  </td>
-                  <td>{seller?.email || "No Email"}</td>
                   <td className="flex flex-col gap-2">
                     {!seller.verified ? (
                       <button
@@ -131,6 +122,15 @@ const AllSellers = () => {
                       Remove
                     </button>
                   </td>
+                  <td>
+                    <p className="flex items-center gap-3">
+                      {seller?.displayName || "No Name"}{" "}
+                      {seller?.verified && (
+                        <GoVerified className="text-blue-600 my-auto" />
+                      )}
+                    </p>
+                  </td>
+                  <td>{seller?.email || "No Email"}</td>
                 </tr>
               ))}
             </tbody>
