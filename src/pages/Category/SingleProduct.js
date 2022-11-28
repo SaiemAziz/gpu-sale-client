@@ -9,6 +9,8 @@ import { GoVerified } from "react-icons/go";
 const SingleProduct = ({ p, refetch, setBookProduct }) => {
   let { user } = useContext(AuthContext);
   let { blueTick, verifyLoading } = useBlueTick(p.sellerEmail);
+
+  // fetching product by ID
   let reported = (id) => {
     fetch(
       `${process.env.REACT_APP_URL}/report-a-item?email=${user.email}&id=${id}`,

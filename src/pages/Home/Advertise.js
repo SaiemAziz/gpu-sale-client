@@ -7,7 +7,7 @@ import SingleProduct from '../Category/SingleProduct';
 const Advertise = () => {
 
   let [bookProduct, setBookProduct] = useState([])
-
+  // fetch advertised products
     const {
         data: products = [],
         refetch,

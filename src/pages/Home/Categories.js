@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { Loading } from "../../shared/components/Loading";
 
 const Categories = () => {
+
+  // fetch categories
   const {
     data: categories = [],
     refetch,

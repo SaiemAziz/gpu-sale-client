@@ -62,7 +62,7 @@ const AddAProduct = () => {
         photoURL : data.data.url,
         reported : false,
     }
-
+    // add a new product
     fetch(`${process.env.REACT_APP_URL}/add-a-product`,{
         method: 'POST',
         headers: {

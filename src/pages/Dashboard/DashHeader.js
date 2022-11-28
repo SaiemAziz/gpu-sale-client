@@ -8,7 +8,7 @@ const DashHeader = ({role}) => {
   let location = useLocation();
   let navigate = useNavigate();
   
-
+  // loging out the user
   let logoutClicked = () => {
     setRedirect(location.pathname === ('/login' || 'register') ? '/' : location.pathname );
     logOut()

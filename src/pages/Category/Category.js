@@ -16,7 +16,7 @@ const Category = () => {
     .replace("/category/", "")
     .replaceAll("-", " ")
     .toUpperCase();
-
+  // fetching products
   useTitle(title);
   const {
     data: products = [],

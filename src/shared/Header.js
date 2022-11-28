@@ -6,6 +6,7 @@ const Header = () => {
   let { logOut, user, setUser, setRedirect } = useContext(AuthContext);
   let location = useLocation();
   let navigate = useNavigate();
+  // nav bar menu 
   let menu = (
     <>
       <NavLink className={({isActive})=>isActive ? 'btn-ghost text-accent-content underline font-bold btn' : 'btn btn-ghost font-bold'} to="/home">
@@ -22,6 +23,7 @@ const Header = () => {
     </>
   );
 
+  // log out user
   let logoutClicked = () => {
     setRedirect(location.pathname === ('/login' || 'register') ? '/' : location.pathname );
     logOut()

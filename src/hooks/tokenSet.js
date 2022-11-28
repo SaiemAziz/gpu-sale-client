@@ -1,3 +1,5 @@
+// set auth token
+
 const tokenSet = (email) => {
     fetch(`${process.env.REACT_APP_URL}/jwt?email=${email}`)
     .then(res => res.json())

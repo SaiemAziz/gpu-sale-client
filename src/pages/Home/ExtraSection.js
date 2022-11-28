@@ -31,7 +31,7 @@ const ExtraSection = () => {
           </div>
         </div>
       </div>
-
+    {/* pie chart */}
       <ResponsiveContainer width="100%" height="100%">
         <PieChart width='100%' height='100%'>
           <Pie

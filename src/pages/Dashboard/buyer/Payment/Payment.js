@@ -9,12 +9,13 @@ import CardPayment from './CardPayment';
 
 const Payment = () => {
     useTitle('Payment')
+    let [productLoad, setProductLoad] = useState(true)
     let [p, setP] = useState({})
     let location = useLocation()
     let id = location.pathname.replace('/dashboard/payment/','')
     let { user } = useContext(AuthContext);
     let { role, loading } = useRoleCheck(user?.email);
-    
+    // fteching product info
     useEffect(()=>{
         fetch(`${process.env.REACT_APP_URL}/single-product?email=${user?.email}&id=${id}`,{
             headers : {
@@ -23,11 +24,11 @@ const Payment = () => {
         }).then(res => res.json())
         .then(data => {
             setP(data.product)
-            console.log(data.product)
+            setProductLoad(false)
         })
     },[user, id])
     
-    if(loading)
+    if(loading || productLoad)
     return <Loading size={80}/>
     if(role !== 'buyer')
     return <Navigate to='/dashboard/default'/>

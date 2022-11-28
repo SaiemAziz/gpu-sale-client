@@ -9,7 +9,7 @@ import { Loading } from '../../../shared/components/Loading';
 const MyBuyers = () => {
     let { user } = useContext(AuthContext);
     let { role, loading } = useRoleCheck(user?.email);
-
+    // fetch buyers
     const {
         data: buyers = [],
         refetch,

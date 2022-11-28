@@ -12,7 +12,7 @@ const BookNowModal = ({p, setP, refetch}) => {
   let {user} = useContext(AuthContext)
 
   let {role, loading} = useRoleCheck(user?.email)
-
+  // form info
   let checkedForm = e => {
     e.preventDefault()
     setModalLoading(true)

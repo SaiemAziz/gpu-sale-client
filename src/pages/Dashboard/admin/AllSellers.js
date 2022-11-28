@@ -9,7 +9,7 @@ import { GoVerified } from "react-icons/go";
 const AllSellers = () => {
   let { user } = useContext(AuthContext);
   let { role, loading } = useRoleCheck(user?.email);
-
+  // fetch sellers
   const {
     data: sellers = [],
     refetch,
@@ -34,26 +34,7 @@ const AllSellers = () => {
 
   if (role !== "admin") return <Navigate to="/dashboard/default" />;
 
-  // let deleteSeller = (id) => {
-  //     let surity = window.confirm('Want to delete this seller?')
-  //     if(!surity)
-  //     return;
-
-  //     fetch(`${process.env.REACT_APP_URL}/all-sellers?email=${user?.email}&id=${id}`, {
-  //         method: 'DELETE',
-  //         headers: {
-  //             authtoken: localStorage.getItem('auth-token')
-  //         }
-  //       }).then(res => res.json())
-  //       .then(data => {
-  //         if(data.result.acknowledged)
-  //         {
-  //             toast.success('Seller Successfully Deleted')
-  //             refetch()
-  //         }
-  //       })
-  // }
-
+  // update sellers
   let updateSeller = (id, task) => {
     fetch(
       `${process.env.REACT_APP_URL}/all-sellers?email=${user?.email}&id=${id}&task=${task}`,

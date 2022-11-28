@@ -6,6 +6,7 @@ const Blogs = () => {
   useTitle("Blogs");
   return (
     <div className="gap-5 flex flex-col p-5 max-w-2xl mx-auto">
+      {/* 1st question */}
       <div tabindex="0" class="collapse">
         <input type="checkbox" defaultChecked />
         <div class="collapse-title text-xl font-medium bg-base-300 text-left flex justify-between items-center">
@@ -20,6 +21,8 @@ const Blogs = () => {
           </p>
         </div>
       </div>
+      {/* 2nd question */}
+
       <div tabindex="0" class="collapse">
         <input type="checkbox" />
         <div class="collapse-title text-xl font-medium bg-base-300 text-left flex justify-between items-center">
@@ -35,6 +38,8 @@ const Blogs = () => {
           </p>
         </div>
       </div>
+      {/* 3rd question */}
+
       <div tabindex="0" class="collapse">
         <input type="checkbox" />
         <div class="collapse-title text-xl font-medium bg-base-300 text-left flex justify-between items-center">
@@ -53,6 +58,9 @@ const Blogs = () => {
           </p>
         </div>
       </div>
+
+      {/* 4th question */}
+
       <div tabindex="0" class="collapse">
         <input type="checkbox" />
         <div class="collapse-title text-xl font-medium bg-base-300 text-left flex justify-between items-center">
