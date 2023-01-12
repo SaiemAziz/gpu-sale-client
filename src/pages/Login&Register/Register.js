@@ -107,7 +107,7 @@ const Register = () => {
     }
 
     return (
-        <div className='my-10 mx-5 text-left'>
+        <div className='my-10 mx-5 text-left mt-20'>
             <h1 className='text-4xl font-bold mb-10 text-center'>Please Register</h1>
             <form onSubmit={formSubmit} className="grid sm:grid-cols-2 grid-cols-1 mx-auto max-w-2xl w-full gap-3 p-5 bg-base-200 rounded-xl">
                 <h1 className='my-auto text-xl'>Name</h1>

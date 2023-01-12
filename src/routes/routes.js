@@ -4,6 +4,7 @@ import Auth from "../context/Auth";
 import Private from "../context/Private";
 import Blogs from "../pages/Blogs/Blogs";
 import Category from "../pages/Category/Category";
+import Collection from "../pages/Collection/Collection";
 import AllBuyers from "../pages/Dashboard/admin/AllBuyers";
 import AllSellers from "../pages/Dashboard/admin/AllSellers";
 import ReportedItems from "../pages/Dashboard/admin/ReportedItems";
@@ -19,43 +20,57 @@ import ErrorPage2 from "../pages/ErrorPage/ErrorPage2";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login&Register/Login";
 import Register from "../pages/Login&Register/Register";
+import Footer from "../shared/Footer";
+import Header from "../shared/Header";
 
 export const routes = createBrowserRouter([
     {
         path: '/',
-        element: <Auth><App/></Auth>,
+        element: <Auth><App /></Auth>,
         children: [
             {
                 index: true,
-                element: <Home/>
+                element: <Home />
             },
             {
                 path: '/home',
-                element: <Home/>
+                element: <Home />
+            },
+            {
+                path: '/collections',
+                element: <Collection />
             },
             {
                 path: '/category/:title',
-                element: <Private><Category/></Private>
+                element: <Private><Category /></Private>
             },
             {
                 path: '/blogs',
-                element: <Blogs/>
+                element: <Blogs />
             },
             {
                 path: '/login',
-                element: <Login/>
+                element: <Login />
             },
             {
                 path: '/register',
-                element: <Register/>
+                element: <Register />
             },
         ],
-        errorElement: <ErrorPage2/>
+        errorElement: <>
+            <Header />
+            <ErrorPage2 />
+            <Footer />
+        </>
     },
     {
         path: '/dashboard',
-        element: <Auth><Private><Dashboard/></Private></Auth>,
-        errorElement: <ErrorPage2/>,
+        element: <Auth><Private><Dashboard /></Private></Auth>,
+        errorElement: <>
+            <Header />
+            <ErrorPage2 />
+            <Footer />
+        </>,
         children: [
             {
                 index: true,
@@ -67,39 +82,39 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/dashboard/all-sellers',
-                element: <Auth><Private><AllSellers/></Private></Auth>
+                element: <Auth><Private><AllSellers /></Private></Auth>
             },
             {
                 path: '/dashboard/all-buyers',
-                element: <Auth><Private><AllBuyers/></Private></Auth>
+                element: <Auth><Private><AllBuyers /></Private></Auth>
             },
             {
                 path: '/dashboard/reported-items',
-                element: <Auth><Private><ReportedItems/></Private></Auth>
+                element: <Auth><Private><ReportedItems /></Private></Auth>
             },
             {
                 path: '/dashboard/my-wishlist',
-                element: <Auth><Private><MyWishlist/></Private></Auth>
+                element: <Auth><Private><MyWishlist /></Private></Auth>
             },
             {
                 path: '/dashboard/my-orders',
-                element: <Auth><Private><MyOrders/></Private></Auth>
+                element: <Auth><Private><MyOrders /></Private></Auth>
             },
             {
                 path: '/dashboard/add-a-product',
-                element: <Auth><Private><AddAProduct/></Private></Auth>
+                element: <Auth><Private><AddAProduct /></Private></Auth>
             },
             {
                 path: '/dashboard/my-buyers',
-                element: <Auth><Private><MyBuyers/></Private></Auth>
+                element: <Auth><Private><MyBuyers /></Private></Auth>
             },
             {
                 path: '/dashboard/my-products',
-                element: <Auth><Private><MyProducts/></Private></Auth>
+                element: <Auth><Private><MyProducts /></Private></Auth>
             },
             {
                 path: '/dashboard/payment/:id',
-                element: <Auth><Private><Payment/></Private></Auth>
+                element: <Auth><Private><Payment /></Private></Auth>
             },
         ]
     }

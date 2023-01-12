@@ -5,7 +5,7 @@ import { IoMdArrowDropdownCircle } from "react-icons/io";
 const Blogs = () => {
   useTitle("Blogs");
   return (
-    <div className="gap-5 flex flex-col p-5 max-w-2xl mx-auto">
+    <div className="gap-5 flex flex-col p-5 max-w-2xl mx-auto mt-20">
       {/* 1st question */}
       <div tabindex="0" class="collapse">
         <input type="checkbox" defaultChecked />

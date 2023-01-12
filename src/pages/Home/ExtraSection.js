@@ -13,7 +13,7 @@ const ExtraSection = () => {
   const COLORS = ['#885C5C', '#778F86'];
   const COLORS2 = ['#778F86','#885C5C' ];
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 my-10 p-5 text-xl font-bold gap-10">
+    <div className="grid grid-cols-1 md:grid-cols-2 my-10 p-5 text-xl font-bold gap-10 ">
       <div className="stats stats-vertical shadow-xl">
         <div className="stat">
           <div className="stat-title font-normal text-left text-4xl italic">Buyers</div>

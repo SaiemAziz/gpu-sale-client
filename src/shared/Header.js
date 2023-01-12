@@ -9,14 +9,23 @@ const Header = () => {
   // nav bar menu 
   let menu = (
     <>
-      <NavLink className={({isActive})=>isActive ? 'btn-ghost text-accent-content underline font-bold btn' : 'btn btn-ghost font-bold'} to="/home">
+      <NavLink className={({isActive})=>isActive ? 'btn-ghost text-blue-800 underline font-bold btn' : 'btn btn-ghost text-stone-800 font-bold'} to="/home">
         Home
       </NavLink>
-      <NavLink className={({isActive})=>isActive ? 'btn-ghost text-accent-content underline font-bold btn' : 'btn btn-ghost font-bold'} to="/blogs">
+      <NavLink className={({isActive})=>isActive ? 'btn-ghost text-blue-800 underline font-bold btn' : 'btn btn-ghost text-stone-800 font-bold'} to="/collections">
+        Collections
+      </NavLink>
+      <NavLink className={({isActive})=>isActive ? 'btn-ghost text-blue-800 underline font-bold btn' : 'btn btn-ghost text-stone-800 font-bold'} to="/about">
+        About
+      </NavLink>
+      <NavLink className={({isActive})=>isActive ? 'btn-ghost text-blue-800 underline font-bold btn' : 'btn btn-ghost text-stone-800 font-bold'} to="/contact">
+        Contact
+      </NavLink>
+      <NavLink className={({isActive})=>isActive ? 'btn-ghost text-blue-800 underline font-bold btn' : 'btn btn-ghost text-stone-800 font-bold'} to="/blogs">
         Blogs
       </NavLink>
       {
-        user && <NavLink className={({isActive})=>isActive ? 'btn-ghost text-accent-content underline font-bold btn' : 'btn btn-ghost font-bold'} to="/dashboard">
+        user && <NavLink className={({isActive})=>isActive ? 'btn-ghost text-blue-800 underline font-bold btn' : 'btn btn-ghost text-stone-800 font-bold'} to="/dashboard">
         Dashboard
       </NavLink>
       }
@@ -34,7 +43,8 @@ const Header = () => {
   };
 
   return (
-    <div className="navbar bg-base-300 shadow-xl sticky top-0 z-50">
+    <div className="backdrop-blur-lg fixed w-full top-0 z-50">
+    <div className="max-w-7xl mx-auto navbar">
       <div className="navbar-start">
         <div className="dropdown shadow-xl">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -91,6 +101,7 @@ const Header = () => {
           </NavLink>
         )}
       </div>
+    </div>
     </div>
   );
 };

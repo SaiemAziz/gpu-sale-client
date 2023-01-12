@@ -32,7 +32,7 @@ const Advertise = () => {
 
     if(products?.length > 0)
     return (
-        <div className='border-b-4 border-neutral mt-5 py-5 px-5'>
+        <div className=' mt-5 py-5 px-5 max-w-7xl mx-auto'>
             <h1 className='text-left text-4xl font-semibold my-5'>Advertisement {products.length}</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
         {products.map((p) => (

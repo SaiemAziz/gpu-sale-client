@@ -31,7 +31,8 @@ const Categories = () => {
     );
 
   return (
-    <div className=" pb-10 px-5 border-b-4 border-neutral">
+    <div className="bg-secondary py-5">
+      <div className="max-w-7xl mx-auto pb-10 px-5">
       <h1 className="text-right text-4xl font-semibold my-5">Categories : {categories.length} Types</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {
@@ -49,6 +50,7 @@ const Categories = () => {
             )
         }
       </div>
+    </div>
     </div>
   );
 };
